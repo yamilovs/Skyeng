@@ -36,11 +36,17 @@ class Task4
             }
         }
 
-        return sprintf(
+        $result = sprintf(
             '%s%s',
             $this->getResultSymbol($a, $b),
             ltrim(strrev($result.$swap), '0')
         );
+
+        if (empty($result) || $result === '-') {
+            $result = '0';
+        }
+
+        return $result;
     }
 
     private function hasMinus(string $string): bool
