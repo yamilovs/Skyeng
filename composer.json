@@ -1,0 +1,15 @@
+{
+    "require-dev": {
+        "phpunit/phpunit": "^7.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "Yamilovs\\Skyeng\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Yamilovs\\Skyeng\\Tests\\": "tests/"
+        }
+    }
+}
