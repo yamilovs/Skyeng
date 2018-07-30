@@ -22,24 +22,21 @@ class Task4
             $a1 = $aInt[-$i] ?? 0;
             $b1 = $bInt[-$i] ?? 0;
 
-            if ($this->hasMinus($a) xor $this->hasMinus($b)) {
+            if ($this->hasMinus($a) xor $this->hasMinus($b)) { // subtraction operation
                 $r1 = (int)$a1 - (int)$b1 - $swap;
 
                 if ($r1 < 0) {
-                    $r1 += 10;
-
                     $swap = 1;
-                    $result .= $r1 % 10;
+                    $result .= $r1 + 10;
                 } else {
                     $swap = 0;
                     $result .= $r1;
                 }
-
-            } else {
+            } else { // addition operation
                 $r1 = (int)$a1 + (int)$b1 + $swap;
 
                 if ($r1 >= 10) {
-                    $swap = floor($r1 / 10);
+                    $swap = 1;
                     $result .= $r1 % 10;
                 } else {
                     $swap = 0;
