@@ -68,10 +68,12 @@ class Task4
                 return true;
                 break;
             case 0:
-                for ($i = 0; $i < strlen($first); $i ++) {
-                    if ($first[$i] > $second[$i]) {
-                        return true;
+                for ($i = 0; $i < strlen($first); $i++) {
+                    if ($first[$i] == $second[$i]) {
+                        continue;
                     }
+
+                    return $first[$i] > $second[$i];
                 }
                 break;
         }
