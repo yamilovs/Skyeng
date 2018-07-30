@@ -8,8 +8,8 @@ class Task4
 {
     public function sum(string $a, string $b): string
     {
-        $aInt = preg_replace('/\D/', '', $a);
-        $bInt = preg_replace('/\D/', '', $b);
+        $aInt = $this->getClearNumberString($a);
+        $bInt = $this->getClearNumberString($b);
 
         $result = '';
         $swap = 0;
@@ -68,8 +68,8 @@ class Task4
 
     private function getResultSymbol(string $a, string $b): string
     {
-        $aInt = preg_replace('/\D/', '', $a);
-        $bInt = preg_replace('/\D/', '', $b);
+        $aInt = $this->getClearNumberString($a);
+        $bInt = $this->getClearNumberString($b);
 
         if ($this->hasMinus($a) && $this->hasMinus($b)) {
             return '-';
@@ -80,5 +80,10 @@ class Task4
         } else {
             return '';
         }
+    }
+
+    private function getClearNumberString(string $string): string
+    {
+        return preg_replace('/\D/', '', $string);
     }
 }
