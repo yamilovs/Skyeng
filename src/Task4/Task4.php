@@ -14,7 +14,7 @@ class Task4
         $result = '';
         $swap = 0;
 
-        if ($bInt > $aInt) {
+        if ($this->isGreater($bInt, $aInt)) {
             list($aInt, $bInt) = [$bInt, $aInt];
         }
 
@@ -58,6 +58,27 @@ class Task4
         return $result;
     }
 
+    private function isGreater(string $first, string $second): bool
+    {
+        switch (strlen($first) <=> strlen($second)) {
+            case -1:
+                return false;
+                break;
+            case 1:
+                return true;
+                break;
+            case 0:
+                for ($i = 0; $i < strlen($first); $i ++) {
+                    if ($first[$i] > $second[$i]) {
+                        return true;
+                    }
+                }
+                break;
+        }
+
+        return false;
+    }
+
     private function hasMinus(string $string): bool
     {
         return strpos($string, '-') !== false;
@@ -70,9 +91,9 @@ class Task4
 
         if ($this->hasMinus($a) && $this->hasMinus($b)) {
             return '-';
-        } elseif ($this->hasMinus($a) && $aInt > $bInt) {
+        } elseif ($this->hasMinus($a) && $this->isGreater($aInt, $bInt)) {
             return '-';
-        } elseif ($this->hasMinus($b) && $bInt > $aInt) {
+        } elseif ($this->hasMinus($b) && $this->isGreater($bInt, $aInt)) {
             return '-';
         } else {
             return '';

@@ -53,4 +53,17 @@ class Task4Test extends TestCase
             $this->assertEquals($item[2], $task->sum($item[0], $item[1]));
         }
     }
+
+    public function testValuesGreaterThatMaxFloat(): void
+    {
+        $task = new Task4();
+
+        $data = [
+            [str_repeat('1', 400), '-'.str_repeat('2', 399), str_repeat('8', 398).'9'],
+        ];
+
+        foreach ($data as $item) {
+            $this->assertEquals($item[2], $task->sum($item[0], $item[1]));
+        }
+    }
 }
